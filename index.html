@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Key Tool</title>
+<style>
+body{background:#080e19;color:white;font-family:Arial;text-align:center;padding:25px}
+main{background:#17243a;padding:25px;border-radius:18px;max-width:450px;margin:auto}
+button{background:#57e0a8;color:#071c15;padding:14px;border:0;border-radius:9px;font-weight:bold}
+#key{overflow-wrap:anywhere;margin-top:20px}
+</style>
+</head>
+<body>
+<main>
+<h1>🔑 My Key Tool</h1>
+<p>নিজের Demo Key Generator</p>
+<button onclick="generate()">Generate Demo Key</button>
+<div id="key"></div>
+</main>
+<script>
+function generate(){
+let a=new Uint8Array(16);
+crypto.getRandomValues(a);
+document.getElementById("key").innerText=
+"DEMO-"+Array.from(a,x=>x.toString(16).padStart(2,"0")).join("").toUpperCase();
+}
+</script>
+</body>
+</html>
